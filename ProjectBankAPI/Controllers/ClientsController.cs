@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectBankAPI.Data;
 using ProjectBankAPI.Models;
+using Serilog;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,8 +49,11 @@ namespace ProjectBankAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutClient(int id, Client client)
         {
+            Log.Information("Solicitud PUT recibida para actualizar cliente con ID {ClientId}", id);
+
             if (id != client.Id)
             {
+                Log.Warning("El ID del cliente no coincide. ID en URL: {ClientId}, ID en cuerpo: {BodyId}", id, client.Id);
                 return BadRequest(new { message = "El ID del cliente no coincide." });
             }
 
@@ -57,6 +61,7 @@ namespace ProjectBankAPI.Controllers
             var existingClient = await _context.Clients.FirstOrDefaultAsync(c => c.Email == client.Email && c.Id != id);
             if (existingClient != null)
             {
+                Log.Warning("Intento de actualizar cliente con un email ya registrado: {Email}", client.Email);
                 return BadRequest(new { message = "El correo electrónico ya está en uso." });
             }
 
@@ -65,21 +70,27 @@ namespace ProjectBankAPI.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+                Log.Information("Cliente con ID {ClientId} actualizado correctamente", id);
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!ClientExists(id))
                 {
+                    Log.Error("Intento de actualizar un cliente no encontrado con ID {ClientId}", id);
                     return NotFound(new { message = "Cliente no encontrado." });
                 }
                 else
                 {
+                    Log.Error("Error de concurrencia al actualizar el cliente con ID {ClientId}", id);
                     throw;
                 }
             }
 
-            return NoContent();
+            Log.Information("Respuesta enviada: NoContent para el cliente con ID {ClientId}", id);
+            return BadRequest(new { message = "Información actualizada" });
+            //return NoContent();
         }
+
 
         // POST: api/Clients
         [HttpPost]
@@ -111,7 +122,8 @@ namespace ProjectBankAPI.Controllers
             _context.Clients.Remove(client);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return BadRequest(new { message = "Eliminación exitosa." });
+            //return NoContent();
         }
 
         private bool ClientExists(int id)
