@@ -1,22 +1,34 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectBankAPI.Data;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Configurar Serilog
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console() // Log en la consola
+    .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day) // Guardar logs en archivos diarios
+    .Enrich.FromLogContext()
+    .ReadFrom.Configuration(builder.Configuration) // Permite leer configuración desde appsettings.json
+    .CreateLogger();
+
+// Reemplazar el sistema de logs de .NET con Serilog
+builder.Host.UseSerilog();
+
+// Configurar conexión a SQL Server
 builder.Services.AddDbContext<BankingDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
 
-
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Middleware de Serilog para registrar todas las solicitudes HTTP
+app.UseSerilogRequestLogging();
+
+// Configurar Swagger solo en modo desarrollo
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -24,9 +36,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
+// Iniciar la API
 app.Run();
