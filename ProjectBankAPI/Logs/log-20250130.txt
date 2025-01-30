@@ -1,0 +1,278 @@
+2025-01-30 05:16:19.893 -05:00 [INF] Now listening on: https://localhost:7020
+2025-01-30 05:16:19.976 -05:00 [INF] Now listening on: http://localhost:5275
+2025-01-30 05:16:20.226 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-30 05:16:20.229 -05:00 [INF] Hosting environment: Development
+2025-01-30 05:16:20.232 -05:00 [INF] Content root path: C:\Users\Comercial\source\repos\ProjectBankAPI\ProjectBankAPI
+2025-01-30 05:16:22.398 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/swagger - null null
+2025-01-30 05:16:22.398 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/swagger/index.html - null null
+2025-01-30 05:16:22.777 -05:00 [INF] HTTP GET /swagger responded 301 in 9.1776 ms
+2025-01-30 05:16:22.790 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/swagger - 499 null null 412.5943ms
+2025-01-30 05:16:22.949 -05:00 [INF] HTTP GET /swagger/index.html responded 200 in 186.2997 ms
+2025-01-30 05:16:22.962 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/swagger/index.html - 200 null text/html;charset=utf-8 586.3703ms
+2025-01-30 05:16:23.088 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-30 05:16:23.088 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/swagger/swagger-ui.css - null null
+2025-01-30 05:16:23.088 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2025-01-30 05:16:23.172 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 85.5524ms
+2025-01-30 05:16:23.222 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-01-30 05:16:23.228 -05:00 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 55.4173 ms
+2025-01-30 05:16:23.235 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/swagger/swagger-ui.css - 499 152034 text/css 146.3419ms
+2025-01-30 05:16:23.443 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 353.8938ms
+2025-01-30 05:16:23.859 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/swagger/favicon-32x32.png - null null
+2025-01-30 05:16:23.918 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-01-30 05:16:23.928 -05:00 [INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 15.8906 ms
+2025-01-30 05:16:23.962 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/swagger/favicon-32x32.png - 499 628 image/png 103.6716ms
+2025-01-30 05:16:24.508 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/swagger/v1/swagger.json - null null
+2025-01-30 05:16:24.555 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 35.9790 ms
+2025-01-30 05:16:24.560 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 53.2492ms
+2025-01-30 05:18:45.070 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7020/api/Clients - application/json 60
+2025-01-30 05:18:45.093 -05:00 [INF] Executing endpoint 'ProjectBankAPI.Controllers.ClientsController.PostClient (ProjectBankAPI)'
+2025-01-30 05:18:45.174 -05:00 [INF] Route matched with {action = "PostClient", controller = "Clients"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ProjectBankAPI.Models.Client]] PostClient(ProjectBankAPI.Models.Client) on controller ProjectBankAPI.Controllers.ClientsController (ProjectBankAPI).
+2025-01-30 05:18:48.304 -05:00 [INF] Executed DbCommand (174ms) [Parameters=[@__client_Email_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Email], [c].[Name]
+FROM [Clients] AS [c]
+WHERE [c].[Email] = @__client_Email_0
+2025-01-30 05:18:48.654 -05:00 [INF] Executed DbCommand (28ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Clients] ([Email], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+2025-01-30 05:18:48.714 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'ProjectBankAPI.Models.Client'.
+2025-01-30 05:18:48.779 -05:00 [INF] Executed action ProjectBankAPI.Controllers.ClientsController.PostClient (ProjectBankAPI) in 3595.3424ms
+2025-01-30 05:18:48.786 -05:00 [INF] Executed endpoint 'ProjectBankAPI.Controllers.ClientsController.PostClient (ProjectBankAPI)'
+2025-01-30 05:18:48.789 -05:00 [INF] HTTP POST /api/Clients responded 201 in 3706.1063 ms
+2025-01-30 05:18:48.805 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7020/api/Clients - 201 null application/json; charset=utf-8 3736.423ms
+2025-01-30 05:20:27.866 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7020/api/BankAccounts - application/json 71
+2025-01-30 05:20:27.879 -05:00 [INF] Executing endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:20:27.892 -05:00 [INF] Route matched with {action = "PostBankAccount", controller = "BankAccounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ProjectBankAPI.Models.BankAccount]] PostBankAccount(ProjectBankAPI.Models.BankAccount) on controller ProjectBankAPI.Controllers.BankAccountsController (ProjectBankAPI).
+2025-01-30 05:20:27.977 -05:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2025-01-30 05:20:28.052 -05:00 [INF] Executed action ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI) in 155.8706ms
+2025-01-30 05:20:28.057 -05:00 [INF] Executed endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:20:28.061 -05:00 [INF] HTTP POST /api/BankAccounts responded 400 in 181.9346 ms
+2025-01-30 05:20:28.067 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7020/api/BankAccounts - 400 null application/problem+json; charset=utf-8 204.2775ms
+2025-01-30 05:20:33.428 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7020/api/BankAccounts - application/json 70
+2025-01-30 05:20:33.433 -05:00 [INF] Executing endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:20:33.435 -05:00 [INF] Route matched with {action = "PostBankAccount", controller = "BankAccounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ProjectBankAPI.Models.BankAccount]] PostBankAccount(ProjectBankAPI.Models.BankAccount) on controller ProjectBankAPI.Controllers.BankAccountsController (ProjectBankAPI).
+2025-01-30 05:21:06.402 -05:00 [ERR] Failed executing DbCommand (32,860ms) [Parameters=[@__bankAccount_ClientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Clients] AS [c]
+        WHERE [c].[Id] = @__bankAccount_ClientId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-30 05:21:06.467 -05:00 [ERR] An exception occurred while iterating over the results of a query for context type 'ProjectBankAPI.Data.BankingDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Tiempo de espera de la operación de espera agotado.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:27946d06-1502-4257-ba06-032988964b66
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Tiempo de espera de la operación de espera agotado.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:27946d06-1502-4257-ba06-032988964b66
+Error Number:-2,State:0,Class:11
+2025-01-30 05:21:06.715 -05:00 [INF] Executed action ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI) in 33275.7051ms
+2025-01-30 05:21:06.720 -05:00 [INF] Executed endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:21:06.725 -05:00 [ERR] HTTP POST /api/BankAccounts responded 500 in 33292.1622 ms
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Tiempo de espera de la operación de espera agotado.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount(BankAccount bankAccount) in C:\Users\Comercial\source\repos\ProjectBankAPI\ProjectBankAPI\Controllers\BankAccountsController.cs:line 88
+   at lambda_method76(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+ClientConnectionId:27946d06-1502-4257-ba06-032988964b66
+Error Number:-2,State:0,Class:11
+2025-01-30 05:21:06.798 -05:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding.
+ ---> System.ComponentModel.Win32Exception (258): Tiempo de espera de la operación de espera agotado.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount(BankAccount bankAccount) in C:\Users\Comercial\source\repos\ProjectBankAPI\ProjectBankAPI\Controllers\BankAccountsController.cs:line 88
+   at lambda_method76(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:27946d06-1502-4257-ba06-032988964b66
+Error Number:-2,State:0,Class:11
+2025-01-30 05:21:06.846 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7020/api/BankAccounts - 500 null text/plain; charset=utf-8 33419.0041ms
+2025-01-30 05:22:07.772 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7020/api/BankAccounts - application/json 73
+2025-01-30 05:22:07.780 -05:00 [INF] Executing endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:22:07.784 -05:00 [INF] Route matched with {action = "PostBankAccount", controller = "BankAccounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ProjectBankAPI.Models.BankAccount]] PostBankAccount(ProjectBankAPI.Models.BankAccount) on controller ProjectBankAPI.Controllers.BankAccountsController (ProjectBankAPI).
+2025-01-30 05:22:07.903 -05:00 [INF] Executed DbCommand (11ms) [Parameters=[@__bankAccount_ClientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Clients] AS [c]
+        WHERE [c].[Id] = @__bankAccount_ClientId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-30 05:22:07.933 -05:00 [INF] Executed DbCommand (8ms) [Parameters=[@__bankAccount_AccountNumber_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [BankAccounts] AS [b]
+        WHERE [b].[AccountNumber] = @__bankAccount_AccountNumber_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-30 05:22:07.997 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [BankAccounts] ([AccountNumber], [Balance], [ClientId])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2025-01-30 05:22:08.005 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'ProjectBankAPI.Models.BankAccount'.
+2025-01-30 05:22:08.019 -05:00 [INF] Executed action ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI) in 228.8941ms
+2025-01-30 05:22:08.032 -05:00 [INF] Executed endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:22:08.033 -05:00 [INF] HTTP POST /api/BankAccounts responded 201 in 253.5285 ms
+2025-01-30 05:22:08.036 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7020/api/BankAccounts - 201 null application/json; charset=utf-8 263.8093ms
+2025-01-30 05:24:44.623 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7020/api/BankAccounts - application/json 84
+2025-01-30 05:24:44.634 -05:00 [INF] Executing endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:24:44.638 -05:00 [INF] Route matched with {action = "PostBankAccount", controller = "BankAccounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ProjectBankAPI.Models.BankAccount]] PostBankAccount(ProjectBankAPI.Models.BankAccount) on controller ProjectBankAPI.Controllers.BankAccountsController (ProjectBankAPI).
+2025-01-30 05:24:44.650 -05:00 [INF] Executed DbCommand (4ms) [Parameters=[@__bankAccount_ClientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Clients] AS [c]
+        WHERE [c].[Id] = @__bankAccount_ClientId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-30 05:24:44.656 -05:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-30 05:24:44.670 -05:00 [INF] Executed action ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI) in 27.9509ms
+2025-01-30 05:24:44.675 -05:00 [INF] Executed endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:24:44.679 -05:00 [INF] HTTP POST /api/BankAccounts responded 400 in 44.7788 ms
+2025-01-30 05:24:44.685 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7020/api/BankAccounts - 400 null application/json; charset=utf-8 68.9133ms
+2025-01-30 05:27:16.861 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7020/api/BankAccounts - application/json 84
+2025-01-30 05:27:16.876 -05:00 [INF] Executing endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:27:16.879 -05:00 [INF] Route matched with {action = "PostBankAccount", controller = "BankAccounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ProjectBankAPI.Models.BankAccount]] PostBankAccount(ProjectBankAPI.Models.BankAccount) on controller ProjectBankAPI.Controllers.BankAccountsController (ProjectBankAPI).
+2025-01-30 05:27:16.897 -05:00 [INF] Executed DbCommand (10ms) [Parameters=[@__bankAccount_ClientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Clients] AS [c]
+        WHERE [c].[Id] = @__bankAccount_ClientId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-30 05:27:16.901 -05:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-30 05:27:16.903 -05:00 [INF] Executed action ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI) in 19.4447ms
+2025-01-30 05:27:16.914 -05:00 [INF] Executed endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:27:16.916 -05:00 [INF] HTTP POST /api/BankAccounts responded 400 in 39.8143 ms
+2025-01-30 05:27:16.919 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7020/api/BankAccounts - 400 null application/json; charset=utf-8 58.2914ms
+2025-01-30 05:27:46.137 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7020/api/BankAccounts - application/json 53
+2025-01-30 05:27:46.151 -05:00 [INF] Executing endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:27:46.153 -05:00 [INF] Route matched with {action = "PostBankAccount", controller = "BankAccounts"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ProjectBankAPI.Models.BankAccount]] PostBankAccount(ProjectBankAPI.Models.BankAccount) on controller ProjectBankAPI.Controllers.BankAccountsController (ProjectBankAPI).
+2025-01-30 05:27:46.167 -05:00 [INF] Executed DbCommand (7ms) [Parameters=[@__bankAccount_ClientId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Clients] AS [c]
+        WHERE [c].[Id] = @__bankAccount_ClientId_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-30 05:27:46.171 -05:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2025-01-30 05:27:46.173 -05:00 [INF] Executed action ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI) in 16.6829ms
+2025-01-30 05:27:46.184 -05:00 [INF] Executed endpoint 'ProjectBankAPI.Controllers.BankAccountsController.PostBankAccount (ProjectBankAPI)'
+2025-01-30 05:27:46.186 -05:00 [INF] HTTP POST /api/BankAccounts responded 400 in 35.3845 ms
+2025-01-30 05:27:46.188 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7020/api/BankAccounts - 400 null application/json; charset=utf-8 52.5475ms
+2025-01-30 05:28:20.689 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7020/api/Transactions - application/json 84
+2025-01-30 05:28:20.704 -05:00 [INF] Executing endpoint 'ProjectBankAPI.Controllers.TransactionsController.PostTransaction (ProjectBankAPI)'
+2025-01-30 05:28:20.726 -05:00 [INF] Route matched with {action = "PostTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ProjectBankAPI.Models.Transaction]] PostTransaction(ProjectBankAPI.Models.Transaction) on controller ProjectBankAPI.Controllers.TransactionsController (ProjectBankAPI).
+2025-01-30 05:28:20.753 -05:00 [INF] Solicitud POST: Creación de transacción {"Id":0,"AccountId":4,"Amount":2250.00,"Type":"Transfer","DestinationAccountId":5,"Timestamp":"2025-01-30T10:28:20.7332176Z","BankAccount":null,"$type":"Transaction"}
+2025-01-30 05:28:20.946 -05:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[AccountNumber], [b].[Balance], [b].[ClientId]
+FROM [BankAccounts] AS [b]
+WHERE [b].[Id] = @__p_0
+2025-01-30 05:28:20.974 -05:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[AccountNumber], [b].[Balance], [b].[ClientId]
+FROM [BankAccounts] AS [b]
+WHERE [b].[Id] = @__p_0
+2025-01-30 05:28:21.214 -05:00 [INF] Executed DbCommand (21ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p3='?' (DbType = Int32), @p2='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = Int32), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (DbType = DateTime2), @p9='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [BankAccounts] SET [Balance] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+UPDATE [BankAccounts] SET [Balance] = @p2
+OUTPUT 1
+WHERE [Id] = @p3;
+INSERT INTO [Transactions] ([AccountId], [Amount], [BankAccountId], [DestinationAccountId], [Timestamp], [Type])
+OUTPUT INSERTED.[Id]
+VALUES (@p4, @p5, @p6, @p7, @p8, @p9);
+2025-01-30 05:28:21.248 -05:00 [INF] Transacción creada exitosamente con ID 10
+2025-01-30 05:28:21.254 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'ProjectBankAPI.Models.Transaction'.
+2025-01-30 05:28:21.269 -05:00 [INF] Executed action ProjectBankAPI.Controllers.TransactionsController.PostTransaction (ProjectBankAPI) in 538.0556ms
+2025-01-30 05:28:21.286 -05:00 [INF] Executed endpoint 'ProjectBankAPI.Controllers.TransactionsController.PostTransaction (ProjectBankAPI)'
+2025-01-30 05:28:21.290 -05:00 [INF] HTTP POST /api/Transactions responded 201 in 585.3104 ms
+2025-01-30 05:28:21.294 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7020/api/Transactions - 201 null application/json; charset=utf-8 604.8169ms

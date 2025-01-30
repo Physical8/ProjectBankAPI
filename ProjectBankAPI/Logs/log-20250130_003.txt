@@ -1,0 +1,45 @@
+2025-01-30 05:39:14.268 -05:00 [INF] Now listening on: https://localhost:7020
+2025-01-30 05:39:14.344 -05:00 [INF] Now listening on: http://localhost:5275
+2025-01-30 05:39:14.530 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-30 05:39:14.542 -05:00 [INF] Hosting environment: Development
+2025-01-30 05:39:14.546 -05:00 [INF] Content root path: C:\Users\Comercial\source\repos\ProjectBankAPI\ProjectBankAPI
+2025-01-30 05:39:18.297 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/swagger/index.html - null null
+2025-01-30 05:39:19.103 -05:00 [INF] HTTP GET /swagger/index.html responded 200 in 219.1747 ms
+2025-01-30 05:39:19.126 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/swagger/index.html - 200 null text/html;charset=utf-8 851.2422ms
+2025-01-30 05:39:19.234 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-30 05:39:19.245 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2025-01-30 05:39:19.234 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/swagger/swagger-ui.css - null null
+2025-01-30 05:39:19.307 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13780 application/javascript; charset=utf-8 74.9973ms
+2025-01-30 05:39:19.361 -05:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-01-30 05:39:19.373 -05:00 [INF] HTTP GET /swagger/swagger-ui.css responded 200 in 48.0221 ms
+2025-01-30 05:39:19.390 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/swagger/swagger-ui.css - 499 152034 text/css 155.6518ms
+2025-01-30 05:39:19.472 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 226.8846ms
+2025-01-30 05:39:19.480 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/swagger/favicon-32x32.png - null null
+2025-01-30 05:39:19.523 -05:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-01-30 05:39:19.528 -05:00 [INF] HTTP GET /swagger/favicon-32x32.png responded 200 in 6.9463 ms
+2025-01-30 05:39:19.538 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/swagger/favicon-32x32.png - 499 628 image/png 59.5201ms
+2025-01-30 05:39:19.611 -05:00 [INF] Request starting HTTP/2 GET https://localhost:7020/swagger/v1/swagger.json - null null
+2025-01-30 05:39:19.683 -05:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 62.1527 ms
+2025-01-30 05:39:19.706 -05:00 [INF] Request finished HTTP/2 GET https://localhost:7020/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 94.743ms
+2025-01-30 05:39:57.571 -05:00 [INF] Request starting HTTP/2 POST https://localhost:7020/api/Transactions - application/json 53
+2025-01-30 05:39:57.592 -05:00 [INF] Executing endpoint 'ProjectBankAPI.Controllers.TransactionsController.PostTransaction (ProjectBankAPI)'
+2025-01-30 05:39:57.687 -05:00 [INF] Route matched with {action = "PostTransaction", controller = "Transactions"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ProjectBankAPI.Models.Transaction]] PostTransaction(ProjectBankAPI.Models.Transaction) on controller ProjectBankAPI.Controllers.TransactionsController (ProjectBankAPI).
+2025-01-30 05:39:57.985 -05:00 [INF] Solicitud POST: Creación de transacción {"Id":0,"AccountId":3,"Amount":270.00,"Type":"Deposit","DestinationAccountId":null,"Timestamp":"2025-01-30T10:39:57.9628987Z","BankAccount":null,"$type":"Transaction"}
+2025-01-30 05:39:59.628 -05:00 [INF] Executed DbCommand (141ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[AccountNumber], [b].[Balance], [b].[ClientId]
+FROM [BankAccounts] AS [b]
+WHERE [b].[Id] = @__p_0
+2025-01-30 05:40:00.148 -05:00 [INF] Executed DbCommand (212ms) [Parameters=[@p1='?' (DbType = Int32), @p0='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p4='?' (DbType = Int32), @p5='?' (DbType = Int32), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [BankAccounts] SET [Balance] = @p0
+OUTPUT 1
+WHERE [Id] = @p1;
+INSERT INTO [Transactions] ([AccountId], [Amount], [BankAccountId], [DestinationAccountId], [Timestamp], [Type])
+OUTPUT INSERTED.[Id]
+VALUES (@p2, @p3, @p4, @p5, @p6, @p7);
+2025-01-30 05:40:00.209 -05:00 [INF] Transacción creada exitosamente con ID 12
+2025-01-30 05:40:00.224 -05:00 [INF] Executing CreatedAtActionResult, writing value of type 'ProjectBankAPI.Models.Transaction'.
+2025-01-30 05:40:00.261 -05:00 [INF] Executed action ProjectBankAPI.Controllers.TransactionsController.PostTransaction (ProjectBankAPI) in 2564.4972ms
+2025-01-30 05:40:00.265 -05:00 [INF] Executed endpoint 'ProjectBankAPI.Controllers.TransactionsController.PostTransaction (ProjectBankAPI)'
+2025-01-30 05:40:00.267 -05:00 [INF] HTTP POST /api/Transactions responded 201 in 2683.9347 ms
+2025-01-30 05:40:00.291 -05:00 [INF] Request finished HTTP/2 POST https://localhost:7020/api/Transactions - 201 null application/json; charset=utf-8 2720.0101ms
