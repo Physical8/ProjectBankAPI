@@ -7,7 +7,6 @@
 ## 📋 **Características**
 ✅ CRUD completo para **Clientes, Cuentas y Transacciones**.  
 ✅ Aplicación de **reglas de negocio** para retiros, consignaciones y transferencias.  
-✅ **Autenticación JWT** (en caso de que la agregues después).  
 ✅ **Patrones de diseño:** CQRS, Mediator y Repository.  
 ✅ **Logs de auditoría** con **Serilog**.  
 ✅ **Pruebas unitarias** con **xUnit, Moq y FluentAssertions**.  
