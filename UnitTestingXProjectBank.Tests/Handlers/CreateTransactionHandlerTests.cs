@@ -1,12 +1,12 @@
 ﻿using Xunit;
 using Moq;
-using ProjectBankAPI.Commands.Transactions;
-using ProjectBankAPI.Models;
-using ProjectBankAPI.Repositories;
+using ProjectBankAPI.Application.Commands.Transactions;
+using ProjectBankAPI.Domain.Models;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
+using ProjectBankAPI.Infrastructure.Persistence.Repositories;
 
 namespace ProjectBankAPI.Tests.Handlers
 {

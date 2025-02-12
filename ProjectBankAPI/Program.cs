@@ -1,10 +1,13 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ProjectBankAPI.Data;
-using ProjectBankAPI.Repositories;
+using ProjectBankAPI.Infrastructure.Persistence;
 using Serilog;
 using MediatR;
 using ProjectBankAPI.Middlewares;
+using ProjectBankAPI.Infrastructure.Persistence.Repositories;
+using Microsoft.OpenApi.Models;
+using ProjectBankAPI.Infrastructure;
+using ProjectBankAPI.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +21,18 @@ Log.Logger = new LoggerConfiguration()
 
 // Reemplazar el sistema de logs de .NET con Serilog
 builder.Host.UseSerilog();
+
+// Agregar capas al contenedor de servicios
+builder.Services.AddApplicationServices();
+builder.Services.AddInfrastructureServices(builder.Configuration);
+
+
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProjectBankAPI", Version = "v1" });
+});
 
 // Configurar conexión a SQL Server
 builder.Services.AddDbContext<BankingDbContext>(options =>
