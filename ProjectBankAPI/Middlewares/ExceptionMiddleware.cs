@@ -1,9 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Serilog;
-using System;
+﻿using Serilog;
 using System.Net;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace ProjectBankAPI.Middlewares
 {

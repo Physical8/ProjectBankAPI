@@ -2,9 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectBankAPI.Infrastructure.Persistence;
 using ProjectBankAPI.Domain.Models;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProjectBankAPI.Controllers
 {
