@@ -1,9 +1,6 @@
 ﻿using MediatR;
 using ProjectBankAPI.Infrastructure.Persistence.Repositories;
 using ProjectBankAPI.Domain.Models;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace ProjectBankAPI.Queries.Transactions
 {

@@ -1,10 +1,6 @@
-﻿using Xunit;
-using Moq;
+﻿using Moq;
 using ProjectBankAPI.Application.Commands.Transactions;
 using ProjectBankAPI.Domain.Models;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 using FluentAssertions;
 using ProjectBankAPI.Infrastructure.Persistence.Repositories;
 
@@ -95,7 +91,43 @@ namespace ProjectBankAPI.Tests.Handlers
             // Assert
             result.Should().NotBeNull();
             result.Amount.Should().Be(200);
-            account.Balance.Should().Be(800); // ✅ Verifica que el saldo se redujo correctamente
+            account.Balance.Should().Be(800); // Verifica que el saldo se redujo correctamente
         }
+
+        [Fact]
+        public async Task Handle_NegativeAmount_ThrowsException()
+        {
+            // Arrange
+            var request = new CreateTransactionCommand
+            {
+                AccountId = 1,
+                Amount = -500, // ❌ Monto inválido
+                Type = TransactionType.Deposit
+            };
+
+            var account = new BankAccount { Id = 1, Balance = 1000 };
+
+            _mockBankAccountRepository
+                .Setup(repo => repo.GetByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync(account);
+
+            // Act
+            Func<Task> act = async () => await _handler.Handle(request, CancellationToken.None);
+
+            try
+            {
+                await _handler.Handle(request, CancellationToken.None);
+                Console.WriteLine("⚠️ No se lanzó ninguna excepción en `Handle`.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"✅ Se lanzó una excepción: {ex.Message}");
+            }
+
+            // Assert
+            await act.Should().ThrowAsync<Exception>()
+                .WithMessage("El monto de la transacción debe ser mayor a cero.");
+        }
+
     }
 }

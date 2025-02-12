@@ -2,9 +2,6 @@
 using ProjectBankAPI.Infrastructure.Persistence.Repositories;
 using ProjectBankAPI.Domain.Models;
 using Serilog;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace ProjectBankAPI.Application.Commands.Transactions
 {
@@ -22,6 +19,11 @@ namespace ProjectBankAPI.Application.Commands.Transactions
         public async Task<Transaction> Handle(CreateTransactionCommand request, CancellationToken cancellationToken)
         {
             Log.Information("Solicitud de transacción recibida: {@Request}", request);
+
+            if (request.Amount <= 0)
+            {
+                throw new Exception("El monto de la transacción debe ser mayor a cero.");
+            }
 
             //  Validar que la cuenta origen exista
             var account = await _bankAccountRepository.GetByIdAsync(request.AccountId);
