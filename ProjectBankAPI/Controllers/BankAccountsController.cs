@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProjectBankAPI.Data;
-using ProjectBankAPI.Models;
+using ProjectBankAPI.Infrastructure.Persistence;
+using ProjectBankAPI.Domain.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

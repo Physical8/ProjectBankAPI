@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ProjectBankAPI.Commands.Transactions;
-using ProjectBankAPI.Models;
+using ProjectBankAPI.Application.Commands.Transactions;
+using ProjectBankAPI.Domain.Models;
 using ProjectBankAPI.Queries.Transactions;
 using System.Collections.Generic;
 using System.Threading.Tasks;

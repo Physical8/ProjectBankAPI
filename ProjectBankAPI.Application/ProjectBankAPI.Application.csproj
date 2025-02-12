@@ -1,10 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.4.1" />
@@ -25,14 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Infrastructure\Persistence\Migrations\" />
-    <Folder Include="Postman_and_BD\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ProjectBankAPI.Application\ProjectBankAPI.Application.csproj" />
     <ProjectReference Include="..\ProjectBankAPI.Domain\ProjectBankAPI.Domain.csproj" />
     <ProjectReference Include="..\ProjectBankAPI.Infrastructure\ProjectBankAPI.Infrastructure.csproj" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
 </Project>
