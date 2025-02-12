@@ -129,5 +129,82 @@ namespace ProjectBankAPI.Tests.Handlers
                 .WithMessage("El monto de la transacción debe ser mayor a cero.");
         }
 
+        [Fact]
+        public async Task Handle_Should_ThrowException_When_TransferringToSameAccount()
+        {
+            // Arrange
+            var account = new BankAccount { Id = 1, Balance = 1000 };
+
+            var request = new CreateTransactionCommand
+            {
+                AccountId = 1,
+                DestinationAccountId = 1, //  Mismo ID
+                Amount = 200,
+                Type = TransactionType.Transfer
+            };
+
+            _mockBankAccountRepository
+                .Setup(repo => repo.GetByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync(account);
+
+            // Act
+            Func<Task> act = async () => await _handler.Handle(request, CancellationToken.None);
+
+            // Assert
+            await act.Should().ThrowAsync<Exception>()
+                .WithMessage("No puedes transferir a la misma cuenta.");
+        }
+
+        [Fact]
+        public async Task Handle_Should_IncreaseBalance_When_DepositSuccessful()
+        {
+            // Arrange
+            var account = new BankAccount { Id = 1, Balance = 500 };
+
+            var request = new CreateTransactionCommand
+            {
+                AccountId = 1,
+                Amount = 200,
+                Type = TransactionType.Deposit
+            };
+
+            _mockBankAccountRepository
+                .Setup(repo => repo.GetByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync(account);
+
+            // Act
+            var result = await _handler.Handle(request, CancellationToken.None);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Amount.Should().Be(200);
+            account.Balance.Should().Be(700); //  Verifica que el saldo aumentó correctamente
+        }
+
+        [Fact]
+        public async Task Handle_Should_ThrowException_When_AmountIsZero()
+        {
+            // Arrange
+            var account = new BankAccount { Id = 1, Balance = 1000 };
+
+            var request = new CreateTransactionCommand
+            {
+                AccountId = 1,
+                Amount = 0, //  Monto inválido
+                Type = TransactionType.Deposit
+            };
+
+            _mockBankAccountRepository
+                .Setup(repo => repo.GetByIdAsync(It.IsAny<int>()))
+                .ReturnsAsync(account);
+
+            // Act
+            Func<Task> act = async () => await _handler.Handle(request, CancellationToken.None);
+
+            // Assert
+            await act.Should().ThrowAsync<Exception>()
+                .WithMessage("El monto de la transacción debe ser mayor a cero.");
+        }
+
     }
 }
